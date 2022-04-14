@@ -14,7 +14,7 @@ class App extends React.Component {
                 <Header />
                 <main>
                     {
-                        movies.map(m => <Movie {...m} />)
+                        movies.map(m => <Movie {...m} key={m.title + m.year} />)
                             // le spread operator permet de récupérer toutes les propriétés d'un objet
                             // title={m.title}
                             // year={m.year}

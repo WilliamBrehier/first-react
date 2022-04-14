@@ -6,8 +6,33 @@ import Galerie from './Galerie';
 
 
 class Movie extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            "isShort": true
+        }
+    }
+    
+    
+        moreInfo = () => {
+            this.setState({
+                "isShort": false
+            });
+        };
+    
+        lessInfo = () => {
+            this.setState({
+                "isShort": true
+            });
+        }
+
+    
+    
+
     render() {
-        const { title, year, synopsis, director, posterUrl } = this.props;
+        const {title, year, director, synopsis, posterUrl} = this.props;
+        const {isShort} = this.state;
 
         return (
             <article className='movie-item'>
@@ -16,7 +41,9 @@ class Movie extends React.Component {
                 <Galerie urls={posterUrl} title={title} />
                 <p>Date de sortie : {year}</p>
                 <p>Réalisateur : {director}</p>
-                <p>synopsis : {synopsis}</p>
+                <p>{isShort ? synopsis.substring(0, 20) + "..." : synopsis}</p>
+                <button onClick={isShort ? this.moreInfo : this.lessInfo}>{isShort ? "Plus d'info" : "Moins d'info"}</button>
+               
             </article>
         );
     }
