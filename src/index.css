@@ -1,0 +1,33 @@
+:root {
+  --light: hsla(3, 72%, 90%, 1);
+  --primary: hsla(359, 91%, 53%, 1);
+  --secondary: hsla(352, 76%, 38%, 1);
+  --terciary: hsla(349, 65%, 24%, 1);
+  --dark: hsla(348, 44%, 15%, 1);
+}
+
+body {
+  margin: 0;
+  font-family: "Agency FB", sans-serif;
+  font-size: 1rem;
+
+  background-color: var(--dark);
+  color: var(--light);
+
+  /*animation: body-loop 10s infinite alternate;*/
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@keyframes body-loop {
+  0% {
+    filter: blur(1px);
+  }
+
+  100% {
+    filter: blur(0);
+  }
+}

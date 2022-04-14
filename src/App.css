@@ -1,0 +1,9 @@
+main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.App {
+  text-align: center;
+}
