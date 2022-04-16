@@ -10,7 +10,8 @@ class Movie extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            "isShort": true
+            "isShort": true,
+            "isChecked": false
         }
     }
     
@@ -27,15 +28,22 @@ class Movie extends React.Component {
             });
         }
 
+        favorite = () => {
+            this.setState({
+                "isChecked": !this.state.isChecked
+            });
+        }
+
     
     
 
     render() {
         const {title, year, director, synopsis, posterUrl} = this.props;
-        const {isShort} = this.state;
+        const {isShort, isChecked} = this.state;
 
         return (
-            <article className='movie-item'>
+            <article className={isChecked ? "favorite-movie" : "movie-item"}>
+                <input type="checkbox" onClick={this.favorite} />
                 <h2>{title}</h2> 
                 {/* cela correspond à this.props.title grâce à la ligne 7 */}
                 <Galerie urls={posterUrl} title={title} />

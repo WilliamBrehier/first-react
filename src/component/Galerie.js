@@ -45,8 +45,15 @@ class Galerie extends React.Component {
             <div className="galerie">  
                 <img src= {urls[imgIndex]}/>
             </div>
+            {
+                imgIndex > 0 &&
                 <button onClick={this.switchSlideLeft}>Précédent</button>
+            }
+            {
+                imgIndex < urls.length -1 &&
                 <button onClick={this.switchSlideRight}>Suivant</button>
+            }    
+                
             </div>
             
         );
